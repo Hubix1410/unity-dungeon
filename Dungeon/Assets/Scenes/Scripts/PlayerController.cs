@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
+    public Camera cam;
 
-    private Vector2 moveDirection;
+    public Vector2 moveDirection;
+    public Vector2 mousePos;
 
     void Update()
     {
@@ -17,10 +19,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        Aim();
     }
 
     void ProcessInputs()
     {
+        // Move Inputs
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -29,6 +33,16 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        // Move player
+        rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+
+        // Move cursor
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    void Aim()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
     }
 }
