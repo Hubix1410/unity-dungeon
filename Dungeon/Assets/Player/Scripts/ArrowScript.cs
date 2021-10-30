@@ -14,8 +14,9 @@ public class ArrowScript : MonoBehaviour
 
         // Random damage of arrow
         arrowDamage = Mathf.Floor(Random.Range(playerStats.pMinBowDamage, playerStats.pMaxBowDamage));
+
+        // Destroy arrow after 10 seconds
         Destroy(gameObject, 10f);
-        Debug.Log(arrowDamage);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

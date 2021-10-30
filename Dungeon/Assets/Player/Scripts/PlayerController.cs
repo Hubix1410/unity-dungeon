@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject thePlayer = GameObject.Find("PlayerObj");
         PlayerStats playerStats = thePlayer.GetComponent<PlayerStats>();
-        moveSpeed = playerStats.pMoveSpeed; ;
+        moveSpeed = playerStats.pMoveSpeed;
     }
 
     void Update()
