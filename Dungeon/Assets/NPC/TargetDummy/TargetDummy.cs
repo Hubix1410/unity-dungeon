@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetDummy : MonoBehaviour
 {
     public float dummyHealth = 100;
+    public GameObject destroiedDummy;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,7 +27,8 @@ public class TargetDummy : MonoBehaviour
 
     void DestroyDummy()
     {
-        Destroy(gameObject, 2f);
+        Instantiate(destroiedDummy, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1), Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }
