@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
+    private float moveSpeed;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -12,9 +12,19 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveDirection;
     public Vector2 mousePos;
 
+    public PlayerStats playerStats;
+
+    private void Start()
+    {
+        GameObject thePlayer = GameObject.Find("PlayerObj");
+        PlayerStats playerStats = thePlayer.GetComponent<PlayerStats>();
+        moveSpeed = playerStats.pMoveSpeed; ;
+    }
+
     void Update()
     {
         ProcessInputs();
+        SetCameraPosition();
     }
 
     void FixedUpdate()
@@ -47,5 +57,10 @@ public class PlayerController : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    void SetCameraPosition()
+    {
+        cam.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -7f);
     }
 }
