@@ -13,21 +13,21 @@ TagManager:
   - UI
   - 
   - 
-  - ground
-  - walls
-  - objects
   - 
   - 
   - 
   - 
+  - Tiles
+  - Walls 1
+  - Objects 1
+  - 'Walls 2 '
+  - Objects 2
+  - Walls 3
+  - Objects 3
   - 
   - 
   - 
   - 
-  - 
-  - Layer 1
-  - Layer 2
-  - Layer 3
   - 
   - 
   - 
