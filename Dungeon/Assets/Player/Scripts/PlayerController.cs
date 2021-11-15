@@ -61,6 +61,6 @@ public class PlayerController : MonoBehaviour
 
     void SetCameraPosition()
     {
-        cam.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -7f);
+        cam.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -100f);
     }
 }
